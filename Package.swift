@@ -20,18 +20,24 @@ let package = Package(
         .target(
             name: "DesignSystem",
 
-            path: "SalesforceDesignSystem",
+            path: "Sources/DesignSystem",
 
-            exclude: [
-                "DesignSystemTests"
+            sources: [
+                "SLDSFont.m",
+                "NSString+SLDSName.m",
+                "UIColor+SLDSColor.m",
+                "UIFont+SLDSFont.m",
+                "UIImage+SLDSIcon.m"
             ],
 
-            publicHeadersPath: ".",
+            resources: [
+                .copy("Resources/SalesforceDesignSystem.bundle")
+            ],
+
+            publicHeadersPath: "include",
 
             cSettings: [
-                .headerSearchPath("."),
-                .headerSearchPath("Generated"),
-                .headerSearchPath("Generated/Extensions")
+                .headerSearchPath("include/DesignSystem")
             ],
 
             linkerSettings: [
