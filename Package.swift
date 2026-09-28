@@ -16,15 +16,21 @@ let package = Package(
         )
     ],
 
-    targets: [
-        .target(
-            name: "DesignSystem",
-            path: "SalesforceDesignSystem",
-            publicHeadersPath: ".",
-            linkerSettings: [
-                .linkedFramework("UIKit"),
-                .linkedFramework("CoreText")
-            ]
-        )
-    ]
+    .target(
+      name: "DesignSystem",
+      path: "SalesforceDesignSystem",
+      exclude: [
+          "DesignSystemTests"
+      ],
+      publicHeadersPath: ".",
+      cSettings: [
+        .headerSearchPath("."),
+        .headerSearchPath("Generated"),
+        .headerSearchPath("Generated/Extensions"),
+      ]
+      linkerSettings: [
+          .linkedFramework("UIKit"),
+          .linkedFramework("CoreText")
+      ]
+    )
 )
