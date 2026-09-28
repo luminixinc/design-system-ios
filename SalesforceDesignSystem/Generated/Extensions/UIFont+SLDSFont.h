@@ -3,7 +3,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
-#import "SLDSFont.h"
+#import "../SLDSFont.h"
 
 @interface UIFont (SLDSFont)
 

@@ -2,7 +2,7 @@
 // Licensed under BSD 3-Clause - see LICENSE.txt or git.io/sfdc-license
 
 #import <UIKit/UIKit.h>
-#import "SLDSColor.h"
+#import "../SLDSColor.h"
 
 @interface UIColor (SLDSColor)
 

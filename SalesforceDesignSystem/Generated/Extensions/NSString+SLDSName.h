@@ -2,7 +2,7 @@
 // Licensed under BSD 3-Clause - see LICENSE.txt or git.io/sfdc-license
 
 #import <Foundation/Foundation.h>
-#import "SLDSName.h"
+#import "../SLDSName.h"
 
 @interface NSString (SLDSName)
 
