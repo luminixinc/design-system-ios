@@ -16,21 +16,23 @@ let package = Package(
         )
     ],
 
-    .target(
-      name: "DesignSystem",
-      path: "SalesforceDesignSystem",
-      exclude: [
-          "DesignSystemTests"
-      ],
-      publicHeadersPath: ".",
-      cSettings: [
-        .headerSearchPath("."),
-        .headerSearchPath("Generated"),
-        .headerSearchPath("Generated/Extensions"),
-      ]
-      linkerSettings: [
-          .linkedFramework("UIKit"),
-          .linkedFramework("CoreText")
-      ]
-    )
+    targets: [
+        .target(
+            name: "DesignSystem",
+            path: "SalesforceDesignSystem",
+            exclude: [
+                "DesignSystemTests"
+            ],
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath("."),
+                .headerSearchPath("Generated"),
+                .headerSearchPath("Generated/Extensions")
+            ],
+            linkerSettings: [
+                .linkedFramework("UIKit"),
+                .linkedFramework("CoreText")
+            ]
+        )
+    ]
 )
