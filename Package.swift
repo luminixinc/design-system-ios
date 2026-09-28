@@ -19,19 +19,8 @@ let package = Package(
     targets: [
         .target(
             name: "DesignSystem",
-
-            path: ".",
-
-            sources: [
-                "SalesforceDesignSystem"
-            ],
-
-            resources: [
-                .copy("SalesforceDesignSystem.bundle")
-            ],
-
-            publicHeadersPath: "include",
-
+            path: "SalesforceDesignSystem",
+            publicHeadersPath: ".",
             linkerSettings: [
                 .linkedFramework("UIKit"),
                 .linkedFramework("CoreText")
