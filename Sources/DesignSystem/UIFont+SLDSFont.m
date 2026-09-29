@@ -102,8 +102,6 @@
     }
 
     // LOGGGING
-    NSBundle *bundle = [SLDSFont resourceBundle];
-
     NSLog(@"Bundle path: %@", bundle.bundlePath);
     NSLog(@"Resource path: %@", bundle.resourcePath);
 
