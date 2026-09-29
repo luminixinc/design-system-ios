@@ -3,7 +3,7 @@
 
 #import "UIFont+SLDSFont.h"
 
-#define kSLDSFontBundleName @"SalesforceDesignSystem"
+#define kSLDSFontBundleName @"SalesforceDesignSystem_DesignSystem"
 #define contains(str1, str2) ([str1 rangeOfString: str2 ].location != NSNotFound)
 
 @implementation UIFont (SLDSFont)
@@ -93,7 +93,7 @@
     }
 
     NSBundle *bundle;
-    
+
     NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:bundleName withExtension:@"bundle"];
     if(bundleURL){
         bundle = [NSBundle bundleWithURL:bundleURL];

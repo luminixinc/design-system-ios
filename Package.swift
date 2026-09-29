@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "DesignSystem",
+    name: "SalesforceDesignSystem",
 
     platforms: [
         .iOS(.v12)
