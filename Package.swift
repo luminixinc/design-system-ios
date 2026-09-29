@@ -31,7 +31,7 @@ let package = Package(
             ],
 
             resources: [
-                .copy("Resources")
+                .copy("Assets")
             ],
 
             publicHeadersPath: "include",
