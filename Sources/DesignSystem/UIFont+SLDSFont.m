@@ -101,17 +101,6 @@
         bundle = [SLDSFont frameworkBundle];
     }
 
-    // LOGGGING
-    NSLog(@"Bundle path: %@", bundle.bundlePath);
-    NSLog(@"Resource path: %@", bundle.resourcePath);
-
-    NSArray<NSURL *> *fonts =
-        [bundle URLsForResourcesWithExtension:@"ttf"
-                                subdirectory:@"Assets"];
-
-    NSLog(@"Fonts in bundle: %@", fonts);
-    // REMOVE
-
     NSURL *fontURL = [bundle URLForResource:fontParts[0] withExtension:fontParts[1] subdirectory:@"Assets"];
     NSData *fontData = [NSData dataWithContentsOfURL:fontURL];
 
