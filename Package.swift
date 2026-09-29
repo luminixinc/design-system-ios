@@ -31,7 +31,7 @@ let package = Package(
             ],
 
             resources: [
-                .copy("Resources/SalesforceDesignSystem.bundle")
+                .copy("Resources")
             ],
 
             publicHeadersPath: "include",

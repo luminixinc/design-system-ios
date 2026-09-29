@@ -1,250 +1,145 @@
-# Lightning Design System tokens, icons and fonts for iOS
+# DesignSystem for iOS
 
-iOS static library for [Salesforce Lightning Design System](https://www.lightningdesignsystem.com/) [Tokens](https://www.lightningdesignsystem.com/design-tokens/).
+An Objective-C implementation of Salesforce Lightning Design System design tokens for iOS, packaged for use with **Swift Package Manager**.
 
-Current release: Spring ’19
+This repository is a maintained fork of the archived Salesforce [`design-system-ios`](https://github.com/salesforce-ux/design-system-ios) project. It has been reorganized and simplified specifically for modern Swift Package Manager integration.
 
-⚠️ **This POD is no longer being updated.**
+The package preserves the existing Objective-C API while removing the legacy CocoaPods, Xcode project, demo, test, and token-generation infrastructure from the original repository.
 
-## Simple Install
+## Installation
 
-Install CocoaPods:
+### Swift Package Manager
 
-```ruby
-$ sudo gem install cocoapods
+In Xcode, select:
+
+**File → Add Package Dependencies…**
+
+and enter the repository URL:
+
+```text
+https://github.com/luminixinc/design-system-ios.git
 ```
 
-Navigate to your iOS project directory and run:
-
-```ruby
-$ pod init
-```
-
-A `Podfile` will be created at the root of your project directory.
-
-Add the following to your Podfile under `use_frameworks!`:
-
-```ruby
-pod 'DesignSystem'
-```
-
-run:
-
-```
-$ pod install
-```
-
-**A workspace for you project will be created (ending in .xcworkspace)**
-
-Open this workspace file in xcode. Use this workspace for future builds.
-
-**Update your search paths**
-
-After opening the workspace go to YourProject->YourProjectTarget->Build Settings-> Header Search Paths, and remove everything but \$(inherited) non-recursive.
-
-## Manual Submodule/Subproject Setup
-
-See [more info](https://github.com/salesforce-ux/design-system-ios/tree/master/manual_install_info)
-
-## Sample Application
-
-See [Demo App](https://github.com/salesforce-ux/design-system-ios/tree/master/Demo-Swift) for a library browser and sample code.
-
-## Swift Usage
-
-### Setup
-
-To use the SLDS library in Swift, import the library:
-
-```
-import DesignSystem
-```
-
-SLDS extensions and constants are now accessible within your file.
-
-### Examples
-
-#### Colors
-
-```swift
-let backgroundColor = UIColor.sldsBackgroundColor(.colorBackground)
-
-let borderColor = UIColor.sldsBorderColor(.colorBorderBrand)
-
-let fillColor = UIColor.sldsFill(.brand)
-
-let textColor = UIColor.sldsTextColor(.colorTextDefault)
-
-```
-
-##### Colors Overrides
-
-Set up an override then use colors as you normally would throughout your application.
-
-```swift
-UIColor.sldsOverrideBackgroundColor(.colorBackground, with: UIColor.cyan)
-let backgroundColor = UIColor.sldsBackgroundColor(.colorBackground)
-
-UIColor.sldsOverrideBorderColor(.colorBorderBrand, with: UIColor.cyan)
-let borderColor = UIColor.sldsBorderColor(.colorBorderBrand)
-
-UIColor.sldsOverrideFill(.brand, with: UIColor.cyan)
-let fillColor = UIColor.sldsFill(.brand)
-
-UIColor.sldsOverrideTextColor(.colorTextBrand, with: UIColor.cyan)
-let textColor = UIColor.sldsTextColor(.colorTextDefault)
-
-```
-
-#### Fonts and text sizes
-
-```swift
-label.font = UIFont.sldsFont(.bold, with: .medium)
-
-```
-
-#### Icons
-
-##### Action Icons
-
-```swift
-let icon = UIImage.sldsActionIcon(.addContact, withSize: SLDSSquareIconLarge)
-
-let iconWithColor = UIImage.sldsActionIcon(.addContact, with: UIColor.black, andBGColor: UIColor.white, andSize: SLDSSquareIconLarge)
-
-```
-
-##### Custom Icons
-
-```swift
-let icon = UIImage.sldsCustomIcon(.custom1, withSize: SLDSSquareIconLarge)
-
-let iconWithColor = UIImage.sldCustomIcon(.custom1, with: UIColor.black, andBGColor: UIColor.white, andSize: SLDSSquareIconLarge)
-
-```
-
-##### Standard Icons
-
-```swift
-let icon = UIImage.sldsStandardIcon(.account, withSize: SLDSSquareIconLarge)
-
-let iconWithColor = UIImage.sldsStandardIcon(.account, with: UIColor.black, andBGColor: UIColor.white, andSize: SLDSSquareIconLarge)
-
-```
-
-##### Utility Icons
-
-```swift
-let icon = UIImage.sldsUtilityIcon(.addContact, withSize: SLDSSquareIconLarge)
-
-let iconWithColor = UIImage.sldsUtilityIcon(.addContact, with: UIColor.black, andBGColor: UIColor.white, andSize: SLDSSquareIconLarge)
-```
+Select the appropriate branch, tag, or version for your project and add the `DesignSystem` product to your application target.
 
 ## Objective-C Usage
 
-### Examples
-
-#### Colors
+Import the DesignSystem umbrella header:
 
 ```objc
 #import <DesignSystem/SalesforceDesignSystem.h>
-
-...
-
-UIColor* backgroundColor = [UIColor sldsBackgroundColor:SLDSCardColorBackground];
-
-UIColor* borderColor = [UIColor sldsBorderColor:SLDSColorBorderBrand];
-
-UIColor* fillColor = [UIColor sldsFill:SLDSFillBrand];
-
-UIColor* textColor = [UIColor sldsTextColor:SLDSColorTextBrand];
 ```
 
-#### Color Overrides
-
-Set up an override then use colors as you normally would throughout your application.
+Alternatively, the module can be imported directly:
 
 ```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
-
-...
-
-UIColor sldsOverrideBackgroundColor:SLDSCardColorBackground with:UIColor.cyanColor];
-UIColor* backgroundColor = [UIColor sldsBackgroundColor:SLDSCardColorBackground];
-
-[UIColor sldsOverrideBorderColor:SLDSColorBorderBrand with:UIColor.cyanColor];
-UIColor* borderColor = [UIColor sldsBorderColor:SLDSColorBorderBrand];
-
-[UIColor sldsOverrideFill:SLDSFillBrand with:UIColor.cyanColor];
-UIColor* fillColor = [UIColor sldsFill:SLDSFillBrand];
-
-[UIColor sldsOverrideTextColor:SLDSColorTextBrand with:UIColor.cyanColor];
-UIColor* textColor = [UIColor sldsTextColor:SLDSColorTextBrand];
+@import DesignSystem;
 ```
 
-#### Fonts and text sizes
+Individual public headers are also available through the `DesignSystem` module.
+
+For example:
 
 ```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
-
-...
-
-UIFont* f = [UIFont sldsFont:SLDSFontRegular withSize:SLDSFontSizeXLarge];
+#import <DesignSystem/SLDSColor.h>
+#import <DesignSystem/UIFont+SLDSFont.h>
 ```
 
-#### Icons
+## Package Structure
 
-##### Action Icons
+The project has been reorganized into a conventional Swift Package Manager layout:
 
-```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
-
-...
-
-UIImage *icon = [UIImage sldsActionIcon:SLDSIconActionNewCustom98 withSize:20.0f];
+```text
+Sources/
+└── DesignSystem/
+    ├── include/
+    │   └── DesignSystem/
+    │       ├── SalesforceDesignSystem.h
+    │       ├── SalesforceDesignSystemNames.h
+    │       ├── SLDSColor.h
+    │       ├── SLDSFont.h
+    │       ├── SLDSIcon.h
+    │       ├── SLDSName.h
+    │       ├── SLDSSize.h
+    │       ├── NSString+SLDSName.h
+    │       ├── UIColor+SLDSColor.h
+    │       ├── UIFont+SLDSFont.h
+    │       └── UIImage+SLDSIcon.h
+    │
+    ├── SLDSFont.m
+    ├── NSString+SLDSName.m
+    ├── UIColor+SLDSColor.m
+    ├── UIFont+SLDSFont.m
+    ├── UIImage+SLDSIcon.m
+    │
+    └── Resources/
+        └── SalesforceDesignSystem.bundle/
 ```
 
-##### Custom Icons
+The public Objective-C headers are exposed as the `DesignSystem` Clang module.
 
-```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
+## Framework Dependencies
 
-...
+The package links against the following Apple frameworks:
 
-UIImage *icon = [UIImage sldsCustomIcon:SLDSIconCustom1 withSize:20.0f];
+- UIKit
+- CoreText
+
+These dependencies are managed automatically by Swift Package Manager.
+
+## Resources
+
+The original `SalesforceDesignSystem.bundle` is included as a package resource and contains the fonts, icons, and other assets required by the library.
+
+Applications using functionality that depends on bundled resources should verify font and icon loading after upgrading the package.
+
+## About This Fork
+
+The original Salesforce project predates widespread Swift Package Manager adoption and was primarily distributed through CocoaPods.
+
+This fork:
+
+- adds Swift Package Manager support
+- reorganizes the Objective-C headers into a standard public include directory
+- preserves the existing Objective-C API where possible
+- preserves the original Salesforce resource bundle
+- removes CocoaPods integration
+- removes the legacy Xcode project
+- removes demo and test targets
+- removes the Node/gulp token-generation toolchain
+- removes files that are not needed to consume the library as a dependency
+
+This repository is intended to provide a stable, lightweight dependency for applications that still rely on the original Salesforce Design System iOS APIs.
+
+It is **not** intended to track current Salesforce Lightning Design System releases or regenerate design tokens from newer SLDS versions.
+
+## Upstream Project
+
+Original project:
+
+```text
+https://github.com/salesforce-ux/design-system-ios
 ```
 
-##### Standard Icons
+This fork is based on the legacy Salesforce Design System iOS implementation associated with the `3.1.x` release line.
 
-```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
+Salesforce has archived the original project and is no longer actively maintaining it.
 
-...
+## Maintaining This Fork
 
-UIImage *icon = [UIImage sldsStandardIcon:SLDSIconStandardAccount withSize:20.0f];
-```
+Changes should generally be limited to:
 
-##### Utility Icons
+- Swift Package Manager compatibility
+- compatibility with newer versions of Xcode and iOS
+- bug fixes required by consuming applications
+- packaging and resource-loading fixes
 
-```objc
-#import <DesignSystem/SalesforceDesignSystem.h>
+Changes to the underlying Salesforce design tokens should be made deliberately, since the original token-generation toolchain is no longer included in this repository.
 
-...
+## License
 
-UIImage *icon = [UIImage sldsUtilityIcon:SLDSIconUtility3dots withSize:20.0f];
-```
+This project retains the licensing of the original Salesforce project.
 
-## Library Build (not required)
+See [`LICENSE.txt`](LICENSE.txt) for details.
 
-In case you want to use your own custom design tokens or extend the SLDS library, you will need to rebuild the Generated folder. After making edits to the gulp scripts, run the following commands.
-
-```
-$ npm install
-$ npm start
-```
-
-## Licenses
-
-- Source code is licensed under [BSD 3-Clause](https://git.io/sfdc-license)
-- All icons and images are licensed under [Creative Commons Attribution-NoDerivatives 4.0](https://github.com/salesforce-ux/licenses/blob/master/LICENSE-icons-images.txt)
-- The Salesforce Sans font is licensed under our [font license](https://github.com/salesforce-ux/licenses/blob/master/LICENSE-font.txt)
+Some bundled resources, including fonts, icons, and images, may be subject to separate licensing terms inherited from the original Salesforce project.

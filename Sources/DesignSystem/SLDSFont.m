@@ -7,11 +7,11 @@
 
 +(NSBundle*)frameworkBundle
 {
-    NSBundle *appBundle = [NSBundle bundleForClass:[self class]];
-    NSString *path = [appBundle pathForResource:@"SalesforceDesignSystem" ofType:@"bundle"];
-    
-    NSBundle *frameworkBundle = [NSBundle bundleWithPath:path];
-    return frameworkBundle;
+    #ifdef SWIFTPM_MODULE_BUNDLE
+        return SWIFTPM_MODULE_BUNDLE;
+    #else
+        return nil;
+    #endif
 }
 
 @end
